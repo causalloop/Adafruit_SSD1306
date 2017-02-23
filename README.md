@@ -1,67 +1,60 @@
-Adafruit_SSD1306
-================
+# Adafruit_SSD1306
 
-Adafruit_SSD1306 library ported for Spark by Paul Kourany, Mar 18, 2014
+A Particle library for Adafruit_SSD1306
 
-## Software SPI
+## Welcome to your library!
 
-SSD1306 128x64 Wiring guide
+To get started, modify the sources in [src](src). Rename the example folder inside [examples](examples) to a more meaningful name and add additional examples in separate folders.
 
-```
-// If using software SPI (the default case):
-#define OLED_MOSI   D0
-#define OLED_CLK    D1
-#define OLED_DC     D2
-#define OLED_CS     D3
-#define OLED_RESET  D4
-Adafruit_SSD1306 display(OLED_MOSI, OLED_CLK, OLED_DC, OLED_RESET, OLED_CS);
-```
-<img src="SSD1306-128x64.jpg" alt="SSD1306 128 x 64 wiring guide"/>
+To compile your example you can use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).
 
+Libraries can also depend on other libraries. To add a dependency use [`particle library add`](https://docs.particle.io/guide/tools-and-features/cli#adding-a-library) or [library management](https://docs.particle.io/guide/tools-and-features/dev/#managing-libraries) in Desktop IDE.
 
+After the library is done you can upload it with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. If you wish to make your library public, use `particle library publish` or `Publish` command.
 
-.
-.
-.
+_TODO: update this README_
 
-Update by Jeremy Ellis Feb 9th, 2016
+## Usage
 
-If using the beginner-128x64-OLED-I2C.ino with the particle.io and the I2C protocol and the Grove seeedstudio 128x64 OLED
-
-http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_0.96%22#With_Arduino
-
-
-
-you can connect all four wires to the Photon
-
-1. black GND 
-1. red 3v3      
-1. white SDA   Pin D0 
-1. yellow SCL  Pin D1 
-
-Remember to include the following files:
-
-1. Adafruit_GFX.cpp
-1. Adafruit_GFX.h
-1. Adafruit_SSD1306.cpp
-1. Adafruit_SSD1306.h
-
-## Hardware SPI
-
-If your OLED screen has the following labels: `CS`, `DC`, `RST`, `D1`, `D0`, `VCC`, `GND` you have a Hardware SPI and should use `ssd1306_128x64_spi.ino`
-
-The wiring should match this:
+Connect XYZ hardware, add the Adafruit_SSD1306 library to your project and follow this simple example:
 
 ```
-OLED_D0 -> A3 (SPI CLK)
-OLED_D1 -> A5 (SPI MOSI)
-OLED_DC -> D3
-OLED_CS -> D4
-OLED_RESET -> D5
-OLED_VCC -> 3V3
-OLED_GND -> GND
+Adafruit_SSD1306 adafruit_SSD1306;
+
+void setup() {
+  adafruit_SSD1306.begin();
+}
+
+void loop() {
+  adafruit_SSD1306.process();
+}
 ```
 
-Tested on Particle Photon.
+See the [examples](examples) folder for more details.
 
-Compiled from https://community.particle.io/t/adafruit-ssd1306-solved/15175/26
+## Documentation
+
+TODO: Describe `Adafruit_SSD1306`
+
+## Contributing
+
+Here's how you can make changes to this library and eventually contribute those changes back.
+
+To get started, [clone the library from GitHub to your local machine](https://help.github.com/articles/cloning-a-repository/).
+
+Change the name of the library in `library.properties` to something different. You can add your name at then end.
+
+Modify the sources in <src> and <examples> with the new behavior.
+
+To compile an example, use `particle compile examples/usage` command in [Particle CLI](https://docs.particle.io/guide/tools-and-features/cli#update-your-device-remotely) or use our [Desktop IDE](https://docs.particle.io/guide/tools-and-features/dev/#compiling-code).
+
+After your changes are done you can upload them with `particle library upload` or `Upload` command in the IDE. This will create a private (only visible by you) library that you can use in other projects. Do `particle library add Adafruit_SSD1306_myname` to add the library to a project on your machine or add the Adafruit_SSD1306_myname library to a project on the Web IDE or Desktop IDE.
+
+At this point, you can create a [GitHub pull request](https://help.github.com/articles/about-pull-requests/) with your changes to the original library. 
+
+If you wish to make your library public, use `particle library publish` or `Publish` command.
+
+## LICENSE
+Copyright 2017 me
+
+Licensed under the <insert your choice of license here> license
